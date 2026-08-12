@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>简历 - 姓名</title>
+<style>
+/* ============================================================
+   《AI职业选位》简历模板 v2（现代中文风格 · 单栏 ATS 友好）
+   - 设计语言借鉴：Reactive Resume（布局/间距系统）、
+     hijiangtao/resume & zheyuye/resume-chinese（中文排版/图标/日期对齐）、
+     adongwanai/LLM-Resume-Template（现代 AI 岗审美）
+   - 配色：深藏青主色（专业稳重），克制无花哨装饰
+   - 图标：内联 SVG（零外部依赖，离线/预览均可正常显示）
+   - 单栏文本流：ATS（北森/大易/Moka/e成）可正常解析
+   - 字体回退：PingFang SC → Microsoft YaHei → Noto Sans SC → sans-serif
+   ============================================================ */
+  @page { size: A4; margin: 12mm 15mm 14mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    font-size: 10pt; line-height: 1.55; color: #2b2f36; background: #fff;
+  }
+  .page { max-width: 210mm; margin: 0 auto; }
+
+  /* ---------- 头部 ---------- */
+  .header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #1f3864; padding-bottom: 12px; }
+  .header-left h1 { font-size: 22pt; letter-spacing: 4px; color: #1f3864; font-weight: 700; line-height: 1.15; }
+  .header-left .intent { margin-top: 6px; font-size: 10pt; color: #4a5568; }
+  .contact { text-align: right; font-size: 9pt; color: #4a5568; line-height: 1.9; }
+  .contact .item { display: flex; align-items: center; justify-content: flex-end; gap: 6px; }
+  .contact svg { width: 12px; height: 12px; flex-shrink: 0; color: #1f3864; }
+
+  /* ---------- 节标题 ---------- */
+  .section { margin-top: 16px; }
+  .section-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11.5pt; font-weight: 700; color: #1f3864; letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .section-title::before { content: ""; width: 5px; height: 13px; background: #1f3864; border-radius: 1px; }
+  .section-title::after { content: ""; flex: 1; height: 1px; background: #d7dce3; }
+
+  /* ---------- 条目 ---------- */
+  .entry { margin-bottom: 9px; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry-head .org { font-size: 10.5pt; font-weight: 700; color: #1c2733; }
+  .entry-head .role { font-size: 10pt; font-weight: 600; color: #1f3864; }
+  .entry-head .date { font-size: 9pt; color: #718096; white-space: nowrap; margin-left: 12px; }
+  .entry ul { list-style: none; margin-top: 3px; }
+  .entry li { position: relative; padding-left: 14px; margin-top: 2px; color: #374151; }
+  .entry li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 5px; height: 5px; border-radius: 50%; background: #c0a062; }
+
+  /* ---------- 教育 ---------- */
+  .edu .entry-head .org { font-size: 10.5pt; }
+  .edu-meta { font-size: 9.5pt; color: #4a5568; margin-top: 2px; }
+
+  /* ---------- 技能 ---------- */
+  .skills { display: flex; flex-wrap: wrap; gap: 6px 0; }
+  .skill-item { font-size: 9.5pt; color: #374151; }
+  .skill-item + .skill-item::before { content: "｜"; color: #cbd2da; margin: 0 8px; }
+
+  /* ---------- 自我评价 ---------- */
+  .eval p { margin-top: 3px; color: #374151; }
+  .eval .tagline { color: #1f3864; font-weight: 600; }
+
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= 头部 ================= -->
+  <div class="header">
+    <div class="header-left">
+      <h1>姓名</h1>
+      <div class="intent">求职意向：目标岗位 ｜ 所在城市 ｜ 工作年限 X 年</div>
+    </div>
+    <div class="contact">
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>138-XXXX-XXXX</span>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>name@example.com</span>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>北京 ｜ 出生 199X.XX</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 教育背景 ================= -->
+  <div class="section">
+    <div class="section-title">教育背景</div>
+    <div class="entry edu">
+      <div class="entry-head">
+        <span class="org">XX大学 <span class="role">（985/211/双一流）· XX专业</span></span>
+        <span class="date">XXXX.09 - XXXX.06</span>
+      </div>
+      <div class="edu-meta">学历：本科/硕士 ｜ GPA/排名：X.X（前 X%） ｜ 主修课程：……</div>
+    </div>
+  </div>
+
+  <!-- ================= 工作经历 ================= -->
+  <div class="section">
+    <div class="section-title">工作经历</div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">公司名称</span><span class="role">岗位名称</span><span class="date">XXXX.XX - XXXX.XX</span>
+      </div>
+      <ul>
+        <li>做了什么，<b>量化结果</b>（如：效率 +40%、覆盖 X 万用户、成本 -30%）——用真实数字，不编造</li>
+        <li>第二件事：负责范围 + 方法 + 结果（STAR 结构）</li>
+        <li>第三件事：体现跨部门协作/带教/流程改进等差异化亮点</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">公司名称</span><span class="role">岗位名称</span><span class="date">XXXX.XX - XXXX.XX</span>
+      </div>
+      <ul>
+        <li>……</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= 项目经历 ================= -->
+  <div class="section">
+    <div class="section-title">项目经历</div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="org">项目名称</span><span class="role">（个人/团队/开源）</span><span class="date">XXXX.XX - XXXX.XX</span>
+      </div>
+      <ul>
+        <li>项目背景与你的角色（一句话）</li>
+        <li>技术/方法 + 成果量化（上线数据、性能提升、获奖等）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= 技能与证书 ================= -->
+  <div class="section">
+    <div class="section-title">技能与证书</div>
+    <div class="skills">
+      <span class="skill-item">技能一</span>
+      <span class="skill-item">技能二</span>
+      <span class="skill-item">技能三（按目标 JD 关键词对齐表述，真实能力范围内）</span>
+      <span class="skill-item">证书：XX 资格证 / CET-6</span>
+    </div>
+  </div>
+
+  <!-- ================= 自我评价 ================= -->
+  <div class="section">
+    <div class="section-title">自我评价</div>
+    <div class="eval">
+      <p><span class="tagline">① 一句话定位：</span>我是……的人（把经历翻译成能力）。</p>
+      <p><span class="tagline">② 最硬的成果：</span>最有说服力的一件量化事实。</p>
+      <p><span class="tagline">③ 与目标岗位的契合：</span>为什么是这个岗位、能为它带来什么。</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

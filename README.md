@@ -16,7 +16,7 @@
 - 🧭 **侧翼雷达**：先回答最痛的问题"我该找什么方向"，产出 3–5 个"领域 × AI"交集坐标 + 90 天验证计划（本书核心主张的交互版）；
 - ⚖️ **A–G 七模块评估**：角色 / 匹配度 / 职级 / 薪酬 / 个性化 / 面试 / 红线尽调，加权出 1–5 分综合评分 + 投/不投建议；
 - 🛡️ **红线尽调**：反诈（培训贷/电诈园区）、劳动合规（试用期/竞业/五险一金基数）、外包识别、雇主尽调清单，命中诈骗类红旗直接一票否决；
-- 📄 **ATS 中文简历**：北森/大易/Moka 友好的单栏 HTML + Playwright 出 PDF，通用/创意/国企三版 + ATS 诊断；
+- 📄 **ATS 中文简历**：北森/大易/Moka 友好的单栏 HTML + Playwright 出 PDF，通用（4 主题）/创意/国企三版 + ATS 诊断；简历视觉基于内置设计系统（SSOT），借鉴 loki-design-system / loki-deck 的配色×版式矩阵思路，并对 ATS/打印做了深底禁用等适配；
 - 🗂️ **本地追踪**：`applications.tsv` 状态机 + 跟进提醒 + 渠道通过率分析；
 - 💬 **面试与谈薪**：STAR+R 故事银行、10 个高信息反问、HR 话术、offer 多维比较与合同审阅清单。
 
@@ -68,7 +68,9 @@ ai-career-position/
 │   ├── companies.yml         # 尽调链接模板 + 外包/派遣名单
 │   ├── interview_formats.yml # 面试形式库
 │   └── followup_cadence.yml  # 跟进节奏
-├── templates/                # 简历 HTML 模板（ATS 友好）
+├── templates/                # 简历 HTML 模板（ATS 友好，设计系统见 RESUME_DESIGN_SYSTEM.md）
+│   ├── RESUME_DESIGN_SYSTEM.md   # 简历设计系统 SSOT（色板/字体/版式/质量门禁）
+│   ├── resume_general_zh_v3.html # ★旗舰：单栏通用版，4 套主题（navy/rock/sage/tech）CSS 变量切换
 ├── scripts/                  # 本地脚本（可选增强层）
 ├── workspace/                # 用户数据（gitignore，绝不提交）
 └── docs/
@@ -86,7 +88,7 @@ ai-career-position/
 ## 致谢与开源
 
 - 理念致敬 **santifer/career-ops**（MIT 协议，约 63K★）：薪资对标、投递模式分析、面试复盘等设计思路源自该项目，代码全部为中国市场重写；
-- 简历 ATS 诊断思路借鉴 OpenResume；
+- 简历 ATS 诊断思路借鉴 OpenResume；简历设计系统（配色/字体/版式/质量门禁）借鉴 loki2046-mao/cola-skills 的 loki-design-system 与 loki-deck（MIT）；
 - 本仓库 MIT 协议开源（见 `LICENSE`），引用第三方数据均注明出处。
 
 ## 与书的关系
