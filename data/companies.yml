@@ -1,0 +1,79 @@
+# data/companies.yml — 尽调入口与外包/派遣公司名单
+# ============================================================
+# 用途：Block G 雇主尽调。提供核验入口链接模板 + 已知外包/派遣公司名单（社区可更新）。
+# 原则：名单仅供参考，外包≠一定差，但用户有权知道自己签的是不是正式编制。
+# ============================================================
+
+meta:
+  version: "1.0"
+  last_updated: "2026-08"
+  sources:
+    - "公开招聘与行业社区整理（C级）"
+    - "《劳动合同法》第五章第二节 劳务派遣（A级）"
+  disclaimer: "公司名单为公开信息整理，随时间变化，仅供识别参考；'知名外包公司'也可能有优质团队与直聘岗位，判断以实际合同主体与岗位性质为准。"
+
+# —— 尽调链接模板（复制替换 {company} 为公司全称） ——
+due_diligence_links:
+  - {name: "天眼查", url: "https://www.tianyancha.com/search?key={company}", check: "注册资本实缴、成立时间、参保人数、经营异常、司法风险"}
+  - {name: "企查查", url: "https://www.qcc.com/web/search?key={company}", check: "同上，交叉验证"}
+  - {name: "爱企查(百度)", url: "https://aiqicha.baidu.com/s?q={company}", check: "同上"}
+  - {name: "裁判文书网", url: "https://wenshu.court.gov.cn/", check: "搜'{company} 劳动争议'、强制执行、失信被执行"}
+  - {name: "中国执行信息公开网", url: "http://zxgk.court.gov.cn/", check: "被执行人/失信被执行记录"}
+  - {name: "脉脉公司页", url: "https://maimai.cn/company/search?keyword={company}", check: "员工口碑、离职率、匿名爆料"}
+  - {name: "看准网", url: "https://www.kanzhun.com/search/?query={company}", check: "评分、点评、面试经验"}
+  - {name: "OfferShow", url: "https://www.offershow.com/", check: "薪资爆料、offer定级参考"}
+  - {name: "小红书/即刻搜索", url: "https://www.xiaohongshu.com/search_result?keyword={company}%20裁员", check: "搜'{company} 裁员/欠薪/加班/坑'"}
+  - {name: "全国企业信用信息公示系统", url: "https://www.gsxt.gov.cn/", check: "官方渠道，年报/异常名录"}
+
+# —— 常见人力外包/IT外包公司（公开信息整理，持续更新） ——
+it_outsourcing_companies:
+  - "中软国际"
+  - "软通动力"
+  - "中电文思海辉（文思海辉）"
+  - "东软集团"
+  - "博彦科技"
+  - "法本信息"
+  - "京北方"
+  - "润和软件"
+  - "中电金信"
+  - "易宝软件"
+  - "浙大网新"
+  - "神州数码（部分外包业务）"
+  - "德科信息"
+  - "凌志软件"
+  - "佰钧成"
+  - "博朗软件（Bleum）"
+  - "纬创软件"
+  - "信华信"
+  - "微创软件（Wicresoft）"
+  - "中科软（部分业务）"
+  - "软通/中软/法本等'八大'：中软国际、软通动力、文思海辉、东软、博彦、法本、京北方、佰钧成"
+
+# —— 常见劳务派遣/人力资源服务公司 ——
+labor_dispatch_companies:
+  - "人瑞人才"
+  - "中智（CIIC）"
+  - "FESCO（北京外企服务集团）"
+  - "外服（上海外服/FSG）"
+  - "科锐国际"
+  - "万宝盛华（Manpower）"
+  - "锐仕方达（兼猎头）"
+  - "蓝领/客服类：各地劳务派遣公司，注意合同主体是否为'XX劳务'"
+
+# —— 外包识别关键词与岗位性质分类 ——
+contract_type_classification:
+  - {type: "甲方直招", keywords: ["与本公司签订劳动合同"], meaning: "正式员工，优先"}
+  - {type: "子公司直签", keywords: ["XX科技（集团子公司）", "XX发展有限公司"], meaning: "正式员工但注意集团与子公司待遇差异"}
+  - {type: "劳务派遣", keywords: ["派遣", "派驻", "第三方合同"], meaning: "与派遣公司签合同，在甲方工作；同工同酬权利但福利/编制差异大"}
+  - {type: "人力外包", keywords: ["外包", "驻场", "人力外包", "项目外包"], meaning: "外包公司员工；社保/公积金通常按外包公司标准，晋升路径模糊"}
+  - {type: "OD（华为等）", keywords: ["OD", "外包编制"], meaning: "外包编制，非正编；转正通道有限，需明确"}
+  - {type: "项目制", keywords: ["项目制合同", "以完成一定工作任务为期限"], meaning: "项目结束合同终止；注意社保连续性"}
+
+# —— 高危组合信号 ——
+high_risk_signals:
+  - "公司成立 <1 年 + 高薪急聘 + 无参保记录"
+  - "招聘主体是'XX信息咨询/XX人力资源'，岗位却写大厂名"
+  - "面试流程极快（一天内口头offer）且催着签约"
+  - "入职前要求交任何费用/办任何'证件'"
+  - "合同主体与面试/招聘主体不一致"
+  - "薪资高到超出同岗位市场 P75 50% 以上且无合理解释"

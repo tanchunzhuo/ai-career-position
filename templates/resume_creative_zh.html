@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>简历（创意版） - 姓名</title>
+<style>
+/* ============================================================
+   《AI职业选位》双栏创意版简历（设计/创意岗位专用）
+   ⚠️ 注意：双栏布局对传统 ATS 不友好，
+   投递传统企业/国企/大厂系统时请使用 resume_general_zh.html（单栏）
+   ============================================================ */
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    font-size: 10pt; color: #222; line-height: 1.6;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  .side {
+    width: 34%; background: #1a2a3a; color: #e8eef5; padding: 28px 20px;
+  }
+  .main { width: 66%; padding: 28px 26px; }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: #2b6cb0; color: #fff; display: flex; align-items: center;
+    justify-content: center; font-size: 30pt; margin: 0 auto 16px;
+  }
+  h1 { font-size: 17pt; text-align: center; letter-spacing: 2px; margin-bottom: 4px; }
+  .sub { text-align: center; font-size: 9pt; opacity: .85; margin-bottom: 18px; }
+  .side h2 {
+    font-size: 10.5pt; margin: 18px 0 8px; padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255,255,255,.25); letter-spacing: 2px;
+  }
+  .side .contact div { font-size: 8.5pt; margin-bottom: 4px; }
+  .side .tag { font-size: 8.5pt; margin: 2px 0; }
+  .main h2 {
+    font-size: 12pt; color: #1a2a3a; margin: 16px 0 6px;
+    padding-left: 8px; border-left: 4px solid #2b6cb0;
+  }
+  .job .row { display: flex; justify-content: space-between; font-weight: 600; }
+  .job .meta { font-size: 8.5pt; font-weight: 400; color: #666; }
+  ul { padding-left: 16px; } li { margin-bottom: 3px; }
+  .edu .row { display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <!-- ========== 左侧栏：联系方式 / 技能 / 兴趣 ========== -->
+  <aside class="side">
+    <div class="avatar">名</div>
+    <h1>姓名</h1>
+    <div class="sub">求职意向：XX / 创意设计类</div>
+    <div class="contact">
+      <div>📞 138-XXXX-XXXX</div>
+      <div>✉️ name@example.com</div>
+      <div>📍 城市</div>
+      <div>🔗 portfolio.example.com</div>
+    </div>
+    <h2>技能</h2>
+    <div class="tag">· XX 工具（熟练）</div>
+    <div class="tag">· XX / XX（掌握）</div>
+    <div class="tag">· AI 工具链：……</div>
+    <h2>兴趣</h2>
+    <div class="tag">· 摄影 / 插画 / 写作</div>
+  </aside>
+
+  <!-- ========== 右侧主栏：经历与作品 ========== -->
+  <main class="main">
+    <h2>工作经历</h2>
+    <div class="job">
+      <div class="row"><span>公司 · 岗位</span><span class="meta">XXXX.XX - XXXX.XX</span></div>
+      <ul><li>成果量化（真实数字）</li><li>主导案例：……</li></ul>
+    </div>
+    <h2>代表作品 / 项目</h2>
+    <div class="job">
+      <div class="row"><span>作品名（类型）</span><span class="meta">XXXX</span></div>
+      <ul><li>角色与产出描述</li><li>链接/二维码（印刷版放二维码）</li></ul>
+    </div>
+    <h2>教育背景</h2>
+    <div class="edu">
+      <div class="row"><span><b>XX大学</b> · XX专业</span><span class="meta">XXXX.XX - XXXX.XX</span></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

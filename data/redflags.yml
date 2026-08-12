@@ -1,0 +1,170 @@
+# data/redflags.yml — 反诈、劳动合规、工作制度、尽调规则
+# ============================================================
+# 规则分类：
+#   fraud         求职反诈（一票否决类）
+#   labor         劳动合规（视程度一票否决）
+#   work_policy   工作制度（委婉措辞识别）
+#   due_diligence 雇主尽调（提示用户去核验，不替其定罪）
+# 每条规则：id / category / keywords(关键词) / severity / veto(是否一票否决) / explanation(解释文案) / action(建议动作)
+# ============================================================
+
+meta:
+  version: "1.0"
+  last_updated: "2026-08"
+  sources:
+    - "《中华人民共和国劳动合同法》（A级）"
+    - "《最高人民法院关于审理劳动争议案件适用法律问题的解释（二）》（2025-08-01发布，2025-09-01施行，21条，A级）"
+    - "《劳务派遣暂行规定》人社部令第22号（A级）"
+    - "公安部反诈宣传与公开通报（A级）"
+    - "2025年起实施渐进式延迟法定退休年龄决定（A级）"
+  disclaimer: "本文件为规则参考，不构成法律意见；红线检测是'提示去核验'，不是定罪。重大决策请咨询劳动法律师或拨打12333。"
+
+rules:
+
+  # ================= 一、求职反诈（一票否决） =================
+  - id: F01
+    category: fraud
+    keywords: ["培训费", "押金", "服装费", "资料费", "办证费", "入职前收费", "指定医院体检", "体检费"]
+    severity: critical
+    veto: true
+    explanation: "《劳动合同法》明确用人单位不得扣押证件、收取财物；任何入职前收费（含'指定医院体检费'）都是违法/诈骗信号。"
+    action: "拒绝付费；保留证据；可向人社部门/110举报。评分直接≤2.0。"
+  - id: F02
+    category: fraud
+    keywords: ["培训贷", "助学贷", "医美贷", "分期付学费", "先培训后上岗", "包就业", "从工资里扣学费"]
+    severity: critical
+    veto: true
+    explanation: "培训贷是应届/转行人群重灾区：以'培训后包高薪就业'为饵诱导贷款，实际就业无保障。2026年仍大量存在。"
+    action: "拒绝；任何诱导贷款行为直接拉黑；可在'国家反诈中心'APP举报。"
+  - id: F03
+    category: fraud
+    keywords: ["刷单", "打字员", "在家日结", "拉人头", "发展下线", "高薪出国", "境外高薪", "迪拜", "柬埔寨", "缅北", "电诈园区"]
+    severity: critical
+    veto: true
+    explanation: "刷单/打字员=诈骗；'高薪出国工作'多为电诈园区招募，人身安全风险极高。"
+    action: "直接拉黑；已联系的建议立即中止并报警。评分≤2.0。"
+  - id: F04
+    category: fraud
+    keywords: ["入职前需要下载APP", "垫资", "做任务", "试岗无薪", "试岗期"]
+    severity: critical
+    veto: true
+    explanation: "试岗期也是劳动关系，必须付薪缴社保；'无薪试岗''垫资做任务'是常见骗局变体。"
+    action: "拒绝无薪试岗；要求书面约定。"
+  - id: F05
+    category: fraud
+    keywords: ["创业合伙人招募", "不拿工资先干", "股权代替工资"]
+    severity: high
+    veto: false
+    explanation: "部分公司以'合伙人''股权'为名白嫖劳动力；真实合伙应有明确股权协议与出资记录。"
+    action: "要求书面协议与真实股权结构；无法提供则视为风险。"
+  - id: F06
+    category: fraud
+    keywords: ["公司成立时间极短", "注册资本未实缴", "查不到参保记录"]
+    severity: high
+    veto: false
+    explanation: "成立<1年+高薪急聘+无参保记录 = 高危组合（尽调项，见 companies.yml）。"
+    action: "先做天眼查核验再继续。"
+
+  # ================= 二、劳动合规红线 =================
+  - id: L01
+    category: labor
+    keywords: ["试用期超过6个月", "试用期工资低于转正80%"]
+    severity: critical
+    veto: true
+    explanation: "《劳动合同法》第19/20条：合同3个月-1年试用期≤1个月；1-3年≤2个月；3年以上/无固定≤6个月；同一单位只能约定一次；试用期工资≥转正80%且不低于当地最低工资。"
+    action: "超标即违法；入职后可主张赔偿（第83条：超期试用按转正工资赔偿）。"
+  - id: L02
+    category: labor
+    keywords: ["空白合同", "试用期不缴社保", "不签合同", "先干后签"]
+    severity: critical
+    veto: true
+    explanation: "劳动关系自用工之日起建立，1个月内必须签书面合同；超1个月未签，需付双倍工资（最多11个月）。试用期必须缴社保。"
+    action: "拒绝签空白合同；保留工资记录证据。"
+  - id: L03
+    category: labor
+    keywords: ["劳务派遣超10%", "长期劳务派遣", "派遣岗冒充正式"]
+    severity: high
+    veto: false
+    explanation: "派遣只能在临时性（≤6个月）/辅助性/替代性岗位使用，占比≤10%；合同≥2年；同工同酬。被派遣≠正式员工，五险一金与福利差异大。"
+    action: "确认合同主体与用工形式；外包/派遣岗要求书面说明转正路径（多半没有）。"
+  - id: L04
+    category: labor
+    keywords: ["竞业限制范围过宽", "竞业补偿过低", "违约金过高"]
+    severity: high
+    veto: false
+    explanation: "竞业限制仅限高管/高级技术/保密义务人员，期限≤2年，须按月支付补偿（通常≥离职前12个月平均工资的30%，各地有差异）。2025《司法解释（二）》对竞业有进一步细化。"
+    action: "核对竞业范围是否覆盖目标公司；补偿过低可主张；违约金过高可请求调整。"
+  - id: L05
+    category: labor
+    keywords: ["绩效占比过高", "基本薪资低于70%", "工资分两张卡", "最低基数缴社保", "五险一金按最低基数"]
+    severity: high
+    veto: false
+    explanation: "绩效/提成占比过高、按最低基数缴纳五险一金会直接减少到手与养老金；分两张卡发工资是规避缴税/赔偿的典型操作。"
+    action: "追问缴纳基数与结构；写入合同或明确书面答复。"
+  - id: L06
+    category: labor
+    keywords: ["违约金", "服务期违约金"]
+    severity: medium
+    veto: false
+    explanation: "《劳动合同法》第25条：除服务期（专项培训）与竞业限制两种情形外，不得约定劳动者违约金。'违约金5万'类条款违法。"
+    action: "核对条款；违法条款可主张无效。"
+
+  # ================= 三、工作制度（委婉措辞识别） =================
+  - id: W01
+    category: work_policy
+    keywords: ["大小周", "996", "单休", "做六休一", "每周上六天"]
+    severity: high
+    veto: false
+    explanation: "直接明示的高强度工时制度；需评估是否符合用户红线（拒绝996等）。"
+    action: "对照用户 profile.yml 红线预警；追问加班费/调休规则。"
+  - id: W02
+    category: work_policy
+    keywords: ["弹性工作制", "扁平化管理", "结果导向", "有挑战", "成长快", "狼性", "奋斗者", "拥抱变化"]
+    severity: medium
+    veto: false
+    explanation: "委婉措辞，需结合上下文识别真实含义：'弹性'可能=需打卡+超长待命；'结果导向'可能=无偿加班；'奋斗者'可能=加班文化。"
+    action: "追问：是否需要打卡？加班是否有调休/补贴？团队实际下班时间？"
+  - id: W03
+    category: work_policy
+    keywords: ["义务加班", "无偿加班", "加班无补贴"]
+    severity: high
+    veto: false
+    explanation: "法律要求支付加班费；'义务加班'不合法。"
+    action: "保留考勤/加班证据，离职后可主张加班费（仲裁时效1年）。"
+  - id: W04
+    category: work_policy
+    keywords: ["外包", "驻场", "派驻", "项目制", "第三方合同", "OD", "人力外包", "劳务派遣"]
+    severity: high
+    veto: false
+    explanation: "外包/派遣岗位的社保、晋升、稳定性、归属感与正式岗差异大；华为OD等需明确。"
+    action: "确认合同主体；询问转正通道（多为口头）；把'甲方直招/子公司直签/劳务派遣/人力外包/项目外包'五类明确分类。"
+
+  # ================= 四、雇主尽调（提示核验） =================
+  - id: D01
+    category: due_diligence
+    keywords: ["主体核验", "合同主体与招聘主体一致", "天眼查", "企查查", "爱企查", "实缴资本", "参保人数", "经营异常", "司法风险"]
+    severity: medium
+    veto: false
+    explanation: "招聘主体≠合同主体时，警惕挂靠/皮包公司。查注册资本实缴、参保人数、经营异常。"
+    action: "用 companies.yml 的模板链接逐项查询并回填。"
+  - id: D02
+    category: due_diligence
+    keywords: ["口碑", "脉脉", "看准网", "OfferShow", "小红书", "裁员", "欠薪", "坑"]
+    severity: medium
+    veto: false
+    explanation: "匿名社区口碑仅供参考，注意筛选情绪化信息，交叉验证。"
+    action: "搜索'公司名+裁员/欠薪/加班/坑'，记录共识结论。"
+  - id: D03
+    category: due_diligence
+    keywords: ["裁判文书网", "劳动争议", "强制执行", "失信被执行", "被执行人"]
+    severity: medium
+    veto: false
+    explanation: "重大劳动争议/被执行记录是公司经营与合规风险的硬信号。"
+    action: "裁判文书网/执行信息网检索公司全称。"
+  - id: D04
+    category: due_diligence
+    keywords: ["背调", "背调授权书", "学历造假", "任职时间", "竞业"]
+    severity: medium
+    veto: false
+    explanation: "大厂/金融机构背调会查学历、工作时间、职位、竞业、征信（金融岗）。简历不造假但可合理包装；背调授权书只签必要范围。"
+    action: "提前核对简历信息与学信网/社保记录一致；明确授权范围。"

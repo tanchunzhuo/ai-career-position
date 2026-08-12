@@ -1,0 +1,124 @@
+# data/levels.yml — 各厂职级对标（社区可更新）
+# ============================================================
+# 说明：
+#   - 职级对标数据为 C 级（匿名社区/个人爆料），仅供横向参考
+#   - 各厂会调整职级体系（如字节 2025 年体系调整），以最新条目为准
+#   - 更新方式见 docs/DATA_UPDATES.md，欢迎 PR
+# ============================================================
+
+meta:
+  version: "1.0"
+  last_updated: "2026-08"
+  sources:
+    - "新浪财经 2026-01-22《阿里的职级薪资体系，可能真的需要调整了》"
+    - "互联网社区职级对标汇总（脉脉/知乎/CSDN，2023-2026）"
+    - "校招薪资盘点 xiaolincoding 2026-02（26届）"
+    - "华为员工薪资水平解析 2026-02（新浪微博科技博主）"
+  disclaimer: "职级与薪资受公司、团队、绩效、时点影响极大，以上为 C 级社区数据的粗粒度区间，仅供参考，决策前请以 HR 面确认与 offer 为准。"
+
+# 公司 → 职级序列 → 对标阿里P系 → 典型年限 → 年薪总包区间（C级，万元/年） → 备注
+companies:
+
+  alibaba: &alibaba
+    name: "阿里巴巴"
+    series: "P（专业序列）/ M（管理序列）"
+    levels:
+      - {level: "P5", alias: "P6对标", ref_years: "应届硕士/1-2年", total_pkg: "30-50", note: "校招硕士常见定级（阿里星除外）"}
+      - {level: "P6", alias: "高级工程师", ref_years: "3-5年", total_pkg: "50-90", note: "阿里P6约50-90万（新浪财经2026-01）；需求量最大区间P6-P8"}
+      - {level: "P7", alias: "专家/技术专家", ref_years: "5-8年", total_pkg: "60-120", note: "P7约60-120万，通常P7起配股票；一线员工职级天花板"}
+      - {level: "P8", alias: "高级专家/资深经理", ref_years: "8-12年", total_pkg: "120-220", note: "P8约120-220万，带管理属性；约1/50的人能到P8"}
+      - {level: "P9", alias: "资深专家/总监", ref_years: "12年+", total_pkg: "220-350", note: "P9约220-350万（新浪财经2026-01）；晋升到P9需集团专业委员会评审"}
+      - {level: "P10+", alias: "研究员/副总裁", ref_years: "—", total_pkg: "350+", note: "一人一价，无法粗估"}
+    note: "阿里按标准3.5绩效约16薪计；校招一般P4-P5，阿里星可P7。"
+
+  bytedance: &bytedance
+    name: "字节跳动"
+    series: "新L体系（旧：1-2/2-1/2-2/3-1/3-2…）"
+    levels:
+      - {level: "1-2", alias: "应届", ref_years: "应届", total_pkg: "25-40", note: "普通校招；名校硕博研发/算法可2-1"}
+      - {level: "2-1", alias: "对标阿里P6", ref_years: "1-3年", total_pkg: "40-70", note: "月薪20K+；前端/开发校招约20K+/月（C级，2024）"}
+      - {level: "2-2", alias: "对标阿里P7（L3）", ref_years: "3-6年", total_pkg: "60-130", note: "总包90-130万常见（含期权约30%）；2025年底字节全员涨薪最高30%（新浪财经2026-01）"}
+      - {level: "3-1", alias: "对标阿里P7+/P8（L4）", ref_years: "5-9年", total_pkg: "100-200", note: "技术算法类3-1与阿里P8持平；大模型算法L3可给到150万左右（2026-01）"}
+      - {level: "3-2", alias: "对标阿里P8+（L5）", ref_years: "8-12年", total_pkg: "150-300", note: "技术专家/管理岗"}
+      - {level: "4-1+", alias: "对标阿里P9+（L6）", ref_years: "12年+", total_pkg: "300+", note: "总监及以上"}
+    note: "字节研发按15薪计（2024年统一薪资体系）；校招26届：白菜26K×15≈39万、SP 28-30K×15≈42-46万、SSP 32-40K×15≈53-70万（含签字费，C级，xiaolincoding 2026-02）"
+
+  tencent: &tencent
+    name: "腾讯"
+    series: "新数字职级（旧：T1.1-T3.3 / 管理L1-L3）"
+    levels:
+      - {level: "6-8级", alias: "对标阿里P5-P6", ref_years: "1-5年", total_pkg: "30-70", note: "旧体系T2.x区间"}
+      - {level: "9-10级", alias: "对标阿里P6-P7", ref_years: "3-7年", total_pkg: "60-120", note: "腾讯10级对标阿里P7，年包约80-120万（C级，2024）"}
+      - {level: "11-12级", alias: "对标阿里P8", ref_years: "7-11年", total_pkg: "120-220", note: "旧T3.1-T3.2；T3-3比T3-1高30-60万/年（C级）"}
+      - {level: "13级+", alias: "对标阿里P9+", ref_years: "11年+", total_pkg: "220+", note: "专家/总监"}
+    note: "腾讯游戏年终奖高、腾讯云股票激励多（C级）；校招26届：27K白菜、29-32K SP、33-35K SSP、38K SSP+（C级，xiaolincoding 2026-02）"
+
+  baidu: &baidu
+    name: "百度"
+    series: "T（技术序列）"
+    levels:
+      - {level: "T3", alias: "校招", ref_years: "应届", total_pkg: "25-40", note: "普通校招T3；名校硕博研发/算法可T4"}
+      - {level: "T5-T6", alias: "对标阿里P6-P7", ref_years: "3-7年", total_pkg: "50-100", note: "T6约对标P7，年包70-100万（C级，2024）；T5以上配股票期权"}
+      - {level: "T7-T8", alias: "对标阿里P8-P9", ref_years: "7-12年", total_pkg: "120-250", note: "专家/资深专家"}
+      - {level: "T9+", alias: "对标阿里P9+", ref_years: "12年+", total_pkg: "250+", note: "总监及以上"}
+    note: "百度薪资结构月薪×15（12+3年终），年终奖2-3个月（C级）"
+
+  huawei: &huawei
+    name: "华为"
+    series: "13-23级（研发序列）"
+    levels:
+      - {level: "13级", alias: "校招起", ref_years: "应届", total_pkg: "20-25", note: "无股票；本科/硕士校招一般13-15级"}
+      - {level: "14级", alias: "", ref_years: "1-3年", total_pkg: "30-38", note: "22-24K×16 约35-38万（C级，2025-10）"}
+      - {level: "15级", alias: "对标阿里P6", ref_years: "2-5年", total_pkg: "35-45", note: ""}
+      - {level: "16级", alias: "对标阿里P6-P7", ref_years: "4-7年", total_pkg: "50-60", note: "博士一般16级以上"}
+      - {level: "17级", alias: "对标阿里P7", ref_years: "6-10年", total_pkg: "60-100", note: "17级年薪可到100万左右（C级，2026-02）"}
+      - {level: "18级", alias: "对标阿里P8", ref_years: "9-13年", total_pkg: "100-200", note: "天才少年可直接18级"}
+      - {level: "19-22级", alias: "对标阿里P9+", ref_years: "13年+", total_pkg: "150-660", note: "19级150-200万起，22级500-660万（C级，2025-10）"}
+    note: "华为分红占比高，职级越高股票越多；'OD'为华为外包编制，职级体系与正编不同（13-17级OD常见），投递时需明确区分。"
+
+  meituan: &meituan
+    name: "美团"
+    series: "L（技术/产品序列，旧3-1/3-2并入L8）"
+    levels:
+      - {level: "L7", alias: "对标阿里P6", ref_years: "2-5年", total_pkg: "40-70", note: ""}
+      - {level: "L8", alias: "对标阿里P7", ref_years: "4-8年", total_pkg: "60-110", note: "旧3-1/3-2合并而来，可带直线下属（C级，2024）"}
+      - {level: "L9-L10", alias: "对标阿里P8+", ref_years: "8-12年", total_pkg: "110-200", note: "总监/专家"}
+    note: "美团按15.5薪计，业绩差时可能不到（C级）"
+
+  jd_xiaomi_kuaishou_others: &others
+    name: "京东/小米/快手/滴滴/网易/B站/拼多多"
+    series: "各自序列"
+    levels:
+      - {level: "京东T7", alias: "对标阿里P7", ref_years: "5-9年", total_pkg: "60-100", note: "（C级，2023-2024）"}
+      - {level: "小米17级", alias: "对标阿里P7", ref_years: "5-9年", total_pkg: "70-120", note: "小米14薪，年终2-3个月（C级，2024-10）"}
+      - {level: "快手", alias: "对标阿里P6-P7", ref_years: "3-7年", total_pkg: "50-110", note: "26届校招白菜25.5K左右，SP 27-30K（C级，2026-02）"}
+      - {level: "滴滴D8", alias: "对标阿里P7", ref_years: "4-8年", total_pkg: "60-100", note: "（C级，2024）"}
+      - {level: "拼多多", alias: "高现金低股份", ref_years: "—", total_pkg: "现金占比高，同职级现金可比大厂高20-30%", note: "强度大（C级）"}
+    note: "新势力（理想/蔚来/小鹏/大疆等）职级体系差异大，以具体公司HR口径为准。"
+
+  finance_consulting: &finance
+    name: "金融/咨询/四大"
+    series: "银行/券商/四大序列"
+    levels:
+      - {level: "四大（四大会计所）", alias: "A1/A2 → SA → M → SM → Partner", ref_years: "应届A1；3-4年SA；6-9年M", total_pkg: "应届15-25；M约60-90（C级）", note: "工资+OT（加班费）结构；2024-2025四大裁员/降薪传闻需尽调"}
+      - {level: "银行", alias: "行员等级", ref_years: "—", total_pkg: "看总行/分行/网点差异极大", note: "总行核心岗对标互联网P6-P7现金水平但更稳（C级）"}
+      - {level: "券商", alias: "研究员/投行序列", ref_years: "—", total_pkg: "底薪+年终（年终波动大）", note: "2024-2026券商降薪潮，务必核验实际年终"}
+    note: "金融岗稳定性与现金结构优于互联网，但年终占比高、波动大。"
+
+  soe: &soe
+    name: "国企/央企/事业单位"
+    series: "职称序列"
+    levels:
+      - {level: "助理（初级）", alias: "对标应届-2年", ref_years: "应届", total_pkg: "按当地事业编/央企标准，含福利折算", note: "编制、年金、公积金是隐形总包"}
+      - {level: "中级", alias: "对标3-7年", ref_years: "3-7年", total_pkg: "—", note: "需职称评审"}
+      - {level: "高级", alias: "对标8年+", ref_years: "8年+", total_pkg: "—", note: "含正高/副高"}
+    note: "国企总包要算：公积金（常按最高基数）、企业年金、补充医疗、编制稳定性。现金低于互联网但福利折算可观。"
+
+# 校招定级参考（C级，2024-2026 汇总）
+campus_levels:
+  - {company: "百度", entry: "T3（普通）/ T4（名校硕博）", note: ""}
+  - {company: "阿里", entry: "P4-P5（普通）/ 阿里星P7", note: "阿里星需极强背景"}
+  - {company: "字节", entry: "1-2（普通）/ 2-1（名校硕博研发/算法）", note: "2026校招大模型方向可到L4（200万+，C级，新浪财经2026-01）"}
+  - {company: "腾讯", entry: "6-7级", note: "2026校招SSP+可达38K×16"}
+  - {company: "华为", entry: "13-15级", note: "博士16级+，天才少年可18级"}
+  - {company: "美团", entry: "L6-L7", note: ""}

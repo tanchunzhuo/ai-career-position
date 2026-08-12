@@ -1,0 +1,95 @@
+# data/salary.yml — 分城市/行业/职级薪资分位数
+# ============================================================
+# 数据性质声明（重要）：
+#   - 本文件薪资为 B/C 级数据：B=招聘平台官方/行业报告；C=匿名社区（看准/脉脉/OfferShow/知乎爆料）
+#   - 每条数据标注来源与时点；无法确认的分位数**宁可留空（null），不编造**
+#   - "宁缺毋假"：给用户输出时如无对应条目，标注"数据不足，待核验"
+#   - 更新方式见 docs/DATA_UPDATES.md；欢迎社区 PR 补充
+# ============================================================
+
+meta:
+  version: "1.0"
+  last_updated: "2026-08"
+  sources:
+    - "猎聘《2025人才供需洞察》《2025互联网薪酬报告》、领禾《2025中国薪酬指南》（城市程序员均薪，2025）"
+    - "脉脉高聘《2026春招职场洞察报告》（AI岗位薪酬，2026-01~04）"
+    - "xiaolincoding 校招薪资盘点 2026-02（26届互联网校招）"
+    - "看准网/OfferShow/脉脉匿名区（C级，2025-2026）"
+  disclaimer: "薪资受公司、团队、职级、绩效、时点影响极大。本文件仅供谈判锚点参考，不承诺任何实际数字。决策前请以 HR 面确认与 offer 为准。"
+
+# ============ 一、城市程序员/技术岗月薪（B级，2025，月薪单位：元） ============
+# 来源：猎聘/领禾 2025 薪酬报告转引（城市平均月薪）
+city_tech_monthly_avg:
+  - {city: "北京", avg_monthly: 22500, note: "高薪方向：AI大模型、集成电路、自动驾驶算法"}
+  - {city: "上海", avg_monthly: 21800, note: "高薪方向：金融科技、机器学习"}
+  - {city: "深圳", avg_monthly: 20500, note: "高薪方向：游戏、算法（华为/腾讯系）"}
+  - {city: "杭州", avg_monthly: 18600, note: "高薪方向：电商、数据科学"}
+  - {city: "广州", avg_monthly: 16200, note: "高薪方向：智能座舱、SaaS"}
+  - {city: "南京", avg_monthly: 15800, note: "高薪方向：芯片设计、数字IC"}
+  - {city: "苏州", avg_monthly: 14900, note: "高薪方向：生物医药CXO、工业AI"}
+  - {city: "成都", avg_monthly: 13500, note: "高薪方向：游戏引擎、内容"}
+  - {city: "武汉", avg_monthly: 12200, note: "高薪方向：光电子、自动驾驶"}
+  - {city: "宁波", avg_monthly: 12800, note: "高薪方向：跨境数字化"}
+
+# ============ 二、AI/大模型岗位月薪（B/C级，2026） ============
+# 来源：脉脉高聘 2026 春招报告（校招中位数）；新浪财经 2026-07 盘点；itheima 2026-06 转引招聘数据
+ai_role_monthly:
+  - {role: "大模型算法工程师（校招中位数）", monthly: 24760, level: "B级", source: "脉脉2026春招", date: "2026-05"}
+  - {role: "深度学习工程师（校招中位数）", monthly: 24466, level: "B级", source: "脉脉2026春招", date: "2026-05"}
+  - {role: "NLP工程师（校招中位数）", monthly: 24378, level: "B级", source: "脉脉2026春招", date: "2026-05"}
+  - {role: "智能体（Agent）开发工程师", monthly: "25K-40K", level: "C级", source: "新浪财经2026-07", date: "2026-07", note: "需求同比+244%，比普通程序员高30-40%"}
+  - {role: "大模型微调专家", monthly: "25K-40K", level: "C级", source: "新浪财经2026-07", date: "2026-07", note: "垂直行业溢价20%以上"}
+  - {role: "AI产品经理", monthly: "平均45K", level: "C级", source: "新浪财经2026-07", date: "2026-07", note: "需求同比+87.7%；资深年薪60-100万"}
+  - {role: "AI解决方案架构师", monthly: "年薪50-150万", level: "C级", source: "新浪财经2026-07", date: "2026-07"}
+  - {role: "AI合规/算法审计", monthly: "20K-40K", level: "C级", source: "新浪财经2026-07", date: "2026-07", note: "高端年薪百万，稀缺"}
+  - {role: "大模型应用开发（RAG/Agent）应届", monthly: "15K-25K", level: "C级", source: "itheima 2026-06", date: "2026-06"}
+  - {role: "大模型应用开发 1-2年", monthly: "28K-40K", level: "C级", source: "itheima 2026-06", date: "2026-06", note: "2026年需求+15倍，缺口超50万（商产业研究院）"}
+  - {role: "AI数据训练师", monthly: 8513, level: "B级", source: "脉脉2026春招", date: "2026-05", note: "金字塔底部，量大价低"}
+
+# ============ 三、2026 届互联网校招 offer（C级，来源 xiaolincoding/知乎 2026-02） ============
+# 说明：月薪×薪资本数≈第一年总包（含签字费折算）；SSP+ 级含签字费10万
+campus_2026:
+  - {company: "字节跳动", tier: "白菜", base_monthly: 26000, months: 15, pkg_1y: 39, note: "开发岗"}
+  - {company: "字节跳动", tier: "SP", base_monthly: "28-30K", months: 15, pkg_1y: "42-46", note: "含1万签字费"}
+  - {company: "字节跳动", tier: "SSP", base_monthly: "32-40K", months: 15, pkg_1y: "53-70", note: "含5-10万签字费"}
+  - {company: "腾讯", tier: "普通/白菜", base_monthly: 27000, months: 16, pkg_1y: "43+", note: "27K为普通档"}
+  - {company: "腾讯", tier: "SP", base_monthly: "29-32K", months: 16, pkg_1y: "46-51", note: ""}
+  - {company: "腾讯", tier: "SSP", base_monthly: "33-35K", months: 16, pkg_1y: "53-56", note: ""}
+  - {company: "腾讯", tier: "SSP+", base_monthly: "38K", months: 16, pkg_1y: "60+", note: "神仙档"}
+  - {company: "快手", tier: "白菜", base_monthly: 25500, months: 16, pkg_1y: "41", note: "另有2K/月房补（SP/SSP档）"}
+  - {company: "快手", tier: "SP", base_monthly: "27-30K", months: 16, pkg_1y: "43-48", note: ""}
+  - {company: "快手", tier: "SSP", base_monthly: "32K+", months: 16, pkg_1y: "51+", note: ""}
+  - {company: "滴滴", tier: "白菜", base_monthly: "21-23K", months: 15, pkg_1y: "32-35", note: "SP/SSP有3-5万签字费"}
+  - {company: "美团", tier: "白菜", base_monthly: "22-24K", months: 15.5, pkg_1y: "34-37", note: "（C级估算）"}
+  - {company: "阿里", tier: "白菜/SP/SSP", base_monthly: "25-26K / 29-30K / 32K+", months: 16, pkg_1y: "40+ / 46+ / 51+", note: "（C级猜测档位）"}
+  - {company: "OPPO/顺丰等中厂", tier: "白菜", base_monthly: "15-22K", months: "13-15", pkg_1y: "20-36", note: "顺丰15K、OPPO 20-22K（C级）"}
+
+# 校招薪资三年趋势（C级，xiaolincoding）
+campus_trend:
+  - {cohort: "24届", baicai_pkg: 30, ssp_pkg: "50-58", note: "11家企业样本"}
+  - {cohort: "25届", baicai_pkg: 35, ssp_pkg: "55-60", note: "30+家企业样本"}
+  - {cohort: "26届", baicai_pkg: "39-45", ssp_pkg: "60-70", note: "35+家企业样本；头部企业SSP+破70万"}
+
+# ============ 四、岗位×城市×职级 P25/P50/P75（C级骨架，待社区PR补全） ============
+# 当前仅有以下可确认条目；其余组合一律标 null —— 宁缺毋假
+percentiles:
+  - {role: "后端开发工程师", city: "北京", level: "P6对标(3-5年)", p25: null, p50: "45-55", p75: null, source: "看准网2025-2026", date: "2025-2026", note: "粗估，待PR补全分位"}
+  - {role: "算法工程师（大模型方向）", city: "北京", level: "P6-P7对标", p25: null, p50: "60-90", p75: null, source: "脉脉2026春招+社区", date: "2026-05", note: "大模型算法供需比<0.3，溢价明显"}
+  - {role: "产品经理", city: "一线", level: "P6对标", p25: null, p50: "40-55", p75: null, source: "看准网2025-2026", date: "2025-2026", note: ""}
+  - {role: "运营", city: "一线", level: "P5-P6对标", p25: null, p50: "20-35", p75: null, source: "看准网2025-2026", date: "2025-2026", note: ""}
+
+# ============ 五、薪资解析规则（供 Block D 使用） ============
+parsing_rules:
+  - {pattern: "K×N薪 / K·N薪", meaning: "月薪×N个月（含年终折算）", example: "25-40K×15薪 → 年化37.5-60万"}
+  - {pattern: "面议", risk: "通常偏低/要压价；提示追问预算区间", example: ""}
+  - {pattern: "底薪+绩效/提成", risk: "基本薪资<70%视为绩效占比过高红旗", example: "8-12K（底薪4K+绩效）"}
+  - {pattern: "期权/股票/RSU", risk: "必须追问归属期、cliff、行权价、离职处理", example: "30K+期权"}
+  - {pattern: "试用期打折>20%", risk: "试用期工资不得低于转正80%（法律红线，A级）", example: ""}
+  - {pattern: "外企月薪·13months+RSU", meaning: "13薪=12薪+1薪圣诞/年奖；RSU按归属期折算", example: "25-40K·13months+RSU"}
+
+# ============ 六、补充公积金/福利折算参考 ============
+benefit_conversion:
+  - {item: "公积金按最高基数（12%双方）", impact: "隐性+15-24%月薪（对比最低基数）", note: "一线城市公积金贷款额度与余额挂钩，是落户/买房关键"}
+  - {item: "企业年金", impact: "+4-8%隐性", note: "国企/央企常见"}
+  - {item: "补充医疗保险", impact: "+1-2%", note: ""}
+  - {item: "免费三餐/房补", impact: "月省1000-3000", note: "按个人消费折算"}

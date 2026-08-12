@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>简历 - 姓名</title>
+<style>
+/* ============================================================
+   《AI职业选位》通用中文简历模板（单栏 · ATS 友好）
+   - 目标 ATS：北森 / 大易 / Moka / e成 / SAP SuccessFactors
+   - 单栏文本流：不用文本框/图片承载关键信息（ATS 读不到）
+   - 字体回退：PingFang SC → Microsoft YaHei → Noto Sans SC → sans-serif
+   - 固定 A4，打印分页控制；导出 PDF 见 scripts/resume_render.py
+   ============================================================ */
+  @page { size: A4; margin: 14mm 16mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    font-size: 10.5pt; line-height: 1.55; color: #222;
+    width: 100%;
+  }
+  h1 { font-size: 20pt; letter-spacing: 1px; }
+  .header { border-bottom: 2px solid #333; padding-bottom: 8px; margin-bottom: 12px; }
+  .header .sub { font-size: 9.5pt; color: #555; margin-top: 4px; }
+  .header .contact { font-size: 9.5pt; color: #333; margin-top: 4px; }
+  h2 {
+    font-size: 12pt; margin: 14px 0 6px; padding-left: 8px;
+    border-left: 4px solid #2b6cb0; color: #1a365d;
+  }
+  .job { margin-bottom: 8px; }
+  .job .row { display: flex; justify-content: space-between; font-weight: 600; }
+  .job .meta { font-size: 9.5pt; color: #555; font-weight: 400; }
+  ul { padding-left: 18px; }
+  li { margin-bottom: 2px; }
+  .edu .row { display: flex; justify-content: space-between; }
+  .self-eval { font-size: 10pt; color: #333; }
+  .skills span { display: inline-block; }
+  /* ATS 提示：关键信息全部用普通文本；日期格式统一 YYYY.MM */
+</style>
+</head>
+<body>
+  <!-- ================= 头部：姓名 + 求职意向 + 联系方式 ================= -->
+  <div class="header">
+    <h1>姓名</h1>
+    <div class="sub">求职意向：目标岗位 | 所在城市 | 工作年限 X 年</div>
+    <div class="contact">电话：138-XXXX-XXXX ｜ 邮箱：name@example.com ｜ 年龄/出生年月：XXXX.XX</div>
+  </div>
+
+  <!-- ================= 教育背景（应届/校招请置于经历之前） ================= -->
+  <h2>教育背景</h2>
+  <div class="edu">
+    <div class="row"><span><b>XX大学</b>（985/211/双一流） · XX专业</span><span class="meta">XXXX.09 - XXXX.06</span></div>
+    <div>学历：本科/硕士 ｜ GPA/排名：X.X（前 X%） ｜ 主修课程：……</div>
+  </div>
+
+  <!-- ================= 工作/实习经历（STAR + 量化） ================= -->
+  <h2>工作经历</h2>
+  <div class="job">
+    <div class="row"><span>公司名称 · 岗位名称</span><span class="meta">XXXX.XX - XXXX.XX</span></div>
+    <ul>
+      <li>做了什么，<b>量化结果</b>（如：效率 +40%、规模 X 万用户、成本 -30%）——用真实数字，不编造</li>
+      <li>第二件事：负责范围 + 方法 + 结果</li>
+    </ul>
+  </div>
+  <div class="job">
+    <div class="row"><span>公司名称 · 岗位名称</span><span class="meta">XXXX.XX - XXXX.XX</span></div>
+    <ul>
+      <li>……</li>
+    </ul>
+  </div>
+
+  <!-- ================= 项目经历 ================= -->
+  <h2>项目经历</h2>
+  <div class="job">
+    <div class="row"><span>项目名称（个人/团队/开源）</span><span class="meta">XXXX.XX - XXXX.XX</span></div>
+    <ul>
+      <li>项目背景与你的角色</li>
+      <li>技术/方法 + 成果量化</li>
+    </ul>
+  </div>
+
+  <!-- ================= 技能证书 ================= -->
+  <h2>技能与证书</h2>
+  <div class="skills">
+    <div>技能：XX / XX / XX（按目标 JD 关键词对齐表述，真实能力范围内）</div>
+    <div>证书：XX 资格证 / CET-6 / ……</div>
+  </div>
+
+  <!-- ================= 自我评价（3 句话） ================= -->
+  <h2>自我评价</h2>
+  <div class="self-eval">
+    <p>① 一句话定位：我是……的人；② 最硬的成果；③ 与目标岗位的契合点。</p>
+  </div>
+</body>
+</html>
