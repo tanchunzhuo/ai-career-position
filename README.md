@@ -78,7 +78,9 @@ ai-career-position/
 └── docs/
     ├── PLATFORM_ADAPTERS.md  # 各宿主适配说明
     ├── DATA_UPDATES.md       # 如何更新 data/*.yml
-    └── PRIVACY.md            # 隐私与合规说明
+    ├── PRIVACY.md            # 隐私与合规说明
+    ├── VALUE_AND_BOUNDARIES.md # 适用人群、质量与可靠性边界
+    └── PUBLISH_TO_GITHUB.md  # SSH 方式发布到 GitHub
 ```
 
 ## 数据与免责声明
