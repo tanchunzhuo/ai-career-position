@@ -69,8 +69,10 @@ ai-career-position/
 │   ├── interview_formats.yml # 面试形式库
 │   └── followup_cadence.yml  # 跟进节奏
 ├── templates/                # 简历 HTML 模板（ATS 友好，设计系统见 RESUME_DESIGN_SYSTEM.md）
-│   ├── RESUME_DESIGN_SYSTEM.md   # 简历设计系统 SSOT（色板/字体/版式/质量门禁）
-│   ├── resume_general_zh_v3.html # ★旗舰：单栏通用版，4 套主题（navy/rock/sage/tech）CSS 变量切换
+│   ├── RESUME_DESIGN_SYSTEM.md   # 简历设计系统 SSOT（色板/字体/版式/模板矩阵/质量门禁/反AI审美清单）
+│   ├── resume_general_zh_v3.html # 实用·经典单栏：4 套主题（navy/rock/sage/tech）CSS 变量切换
+│   ├── resume_swiss_neue.html    # 个性·瑞士国际主义：隐形网格+编号系统+原色点缀（技术/AI/设计岗）
+│   ├── resume_editorial.html     # 个性·电子杂志风：衬线标题+双栏叙事（产品/运营/内容岗）
 ├── scripts/                  # 本地脚本（可选增强层）
 ├── workspace/                # 用户数据（gitignore，绝不提交）
 └── docs/
@@ -88,7 +90,7 @@ ai-career-position/
 ## 致谢与开源
 
 - 理念致敬 **santifer/career-ops**（MIT 协议，约 63K★）：薪资对标、投递模式分析、面试复盘等设计思路源自该项目，代码全部为中国市场重写；
-- 简历 ATS 诊断思路借鉴 OpenResume；简历设计系统（配色/字体/版式/质量门禁）借鉴 loki2046-mao/cola-skills 的 loki-design-system 与 loki-deck（MIT）；
+- 简历 ATS 诊断思路借鉴 OpenResume；简历设计系统（配色/字体/版式/质量门禁）借鉴 loki2046-mao/cola-skills 的 loki-design-system 与 loki-deck（MIT）；模板矩阵与构建工作流借鉴 colaskill.com 精选的 vibe-resume-skill（KevinYoung-Kw，MIT）、guizang-ppt-skill（op7418，AGPL，仅借鉴视觉理念）与 taste-skill（反 AI 审美清单）；
 - 本仓库 MIT 协议开源（见 `LICENSE`），引用第三方数据均注明出处。
 
 ## 与书的关系

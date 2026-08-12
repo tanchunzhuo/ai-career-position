@@ -105,6 +105,46 @@ grep -nP "[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]" templates/*.html
 | `resume_creative_zh.html` | 双栏创意版 | rock |
 | `resume_state_owned.html` | 国企版 | navy |
 
-## 8. 致谢
+## 8. 模板矩阵（v2 架构，借鉴 vibe-resume-skill / guizang-ppt-skill / taste-skill）
+
+> 核心理念（来自 vibe-resume-skill）：**每套模板有自己的信息结构、字体层级、间距节奏和使用场景——不是简单的换色。**
+> 模板分两级：**Practical 实用类**（优先招聘官阅读顺序、信息密度、正式投递）与 **Personality 个性类**（保留完整设计语言，适合技术/设计/创意岗）。
+
+### 8.1 模板矩阵
+
+| 模板 | 级别 | 信息架构 | 视觉语言 | 适用人群 |
+|---|---|---|---|---|
+| `resume_general_zh_v3.html` | Practical | 经典单栏（头/教育/工作/项目/技能/评价） | 4 主题变量（navy/rock/sage/tech） | 通用社招（默认） |
+| `resume_swiss_neue.html` ★新 | Personality | 隐形网格 + 编号系统 + 原色点缀 | 瑞士国际主义（借鉴 guizang Style B / vibe swiss-neue） | 技术/AI/设计岗 |
+| `resume_editorial.html` ★新 | Personality | 双栏：左信息栏 + 右叙事主栏 | 电子杂志风，单色+字重层级（借鉴 vibe editorial / guizang Style A） | 产品/运营/内容/咨询 |
+| `resume_creative_zh.html` | Personality | 双栏创意 | 品牌化深色侧栏 | 设计/创意岗 |
+| `resume_state_owned.html` | Practical | 政府规范字段表 | 庄重克制（借鉴 vibe gov-red 理念，红金点缀但保持克制） | 国企/事业编/选调 |
+
+### 8.2 反 AI 审美清单（借鉴 taste-skill / frontend-slides 的 anti-AI-aesthetic）
+
+taste-skill（45K★，Vercel 赞助）的核心：**防止 agent 生成"通用 AI 审美"——紫色渐变、玻璃拟态、圆角卡片、emoji 滥用**。简历版清单：
+
+- [ ] 无 `#6C63FF`/紫色渐变（AI 默认色，一眼 AI 味）
+- [ ] 无玻璃拟态（frosted glass）、无大面积阴影、无发光霓虹
+- [ ] 无 emoji 图标（用内联 SVG 或纯文本）
+- [ ] 无"万能圆角卡片"堆砌（全部内容都塞圆角卡片 = 平庸）
+- [ ] 无 `Space Grotesk` 无脑引用（英文花哨字体，中文简历别硬搭）
+- [ ] 无装饰性假数据/占位图
+- [ ] 对齐必须严格（瑞士式：要么全左对齐，要么严格网格，不允许随手居中）
+
+### 8.3 简历构建工作流（借鉴 vibe-resume-skill 的 SKILL.md）
+
+```
+1. 组织事实优先：从素材（经历/作品/JD）提取，AI 先确认事实，绝不捏造指标
+2. 选模板：按岗位/身份查 §8.1 矩阵（实用 vs 个性）
+3. 只改内容：Copy 模板 → 只替换文本与必要引用，保持类名与 CSS token 一致
+4. 排版平衡：内容稳定后再调位置；一页目标；检查溢出/重叠/异常换行
+5. 截图 QA：导出 HTML/PDF 后必须截图检查整页效果（P0 全过才交付）
+6. 迭代：用户说"加一段经历"时保留现有视觉语言，插内容后重排再 QA
+```
+
+模板结构约定：**模板拥有结构，AI 在允许的槽位里选择组件**（vibe-resume 的 Component Slot 思想）——不临时发明新布局，保证每次产出一致。
+
+## 9. 致谢
 
 设计系统架构与设计原则借鉴 loki2046-mao/cola-skills 的 loki-design-system / loki-deck（MIT），已做简历场景适配（深底→纯白、emoji→禁用、对称网格→非对称信息布局）。
