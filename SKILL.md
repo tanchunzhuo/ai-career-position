@@ -1,9 +1,18 @@
-# SKILL.md —《AI职业选位》主调度
+---
+name: ai-career-position
+description: "找到你在 AI 时代最值得站的位置。当用户说「评估这个JD」「分析这个职位」「这个岗位怎么样」「这个offer值不值得去」「比较offer」「准备面试」「帮我找方向」「我适合什么方向」「该不该转行」「改简历」「看看我的简历」「识别外包/培训贷」时使用。粘贴一个招聘JD（文本/URL/截图），本地评估匹配度、识破外包与培训贷骗局、对标职级与总包、生成过国内ATS的中文简历、准备面试、追踪投递、比较offer。投递永远由用户自己完成。"
+license: MIT
+version: 1.0.0
+metadata:
+  author: tanchunzhuo
+  homepage: https://github.com/tanchunzhuo/ai-career-position
+---
 
-> 名称：AI职业选位 / ai-career-position
-> 版本：v1.0 · 2026-08
-> 作者：tanchunzhuo
-> 简介：找到你在 AI 时代最值得站的位置。粘贴一个 JD（文本/URL/截图），本地评估匹配度、识破外包与骗局、对标职级与总包、生成过国内 ATS 的中文简历、准备面试、追踪投递、比较 offer——投递永远由用户自己完成。
+# AI职业选位（ai-career-position）
+
+> 找到你在 AI 时代最值得站的位置。
+>
+> 粘贴一个 JD（文本/URL/截图），本地评估匹配度、识破外包与骗局、对标职级与总包、生成过国内 ATS 的中文简历、准备面试、追踪投递、比较 offer。投递永远由用户自己完成。
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **找到你在 AI 时代最值得站的位置。**
 > 一个本地运行、平台无关、人机协同的中国求职 AI 助手。
-> by **tanchunzhuo** ｜ v1.0（2026-08）｜ MIT 协议 
+> by **tanchunzhuo** ｜ v1.0（2026-08）｜ MIT 协议 ｜ 免费开源
 
 ---
 
@@ -24,15 +24,45 @@
 1. **100% 本地运行，数据不上传**。简历、薪资、投递记录只存你电脑的 `workspace/`，`.gitignore` 已忽略，永不提交任何服务器。2026 年最该被问的问题，这里已经替你守住了。
 2. **人机协同，不是自动投递机器**。所有投递、发送、点击由你手动完成，绝不登录招聘平台、绝不存账号密码。它帮你把「该投哪些、怎么避坑」想清楚，把决策权留给你。
 3. **不造假、不承诺**。简历优化是「让真实经历被准确解析」，不是伪造；红线检测是「提示去核验」，不是定罪；薪资标注来源与时点，给不出就标「待核验」，绝不编一个漂亮数字。
-4. **站在巨人的肩膀上**。理念致敬 **santifer/career-ops**（约 63K★ 的开源求职系统，MIT）：薪资对标、投递模式分析、面试复盘的设计思路源自它，代码为**中国市场完全重写**——中式薪资格式解析（"25-40K×15薪"）、大厂职级对标（阿里 P6/字节 2-2/腾讯 T3）、外包/派遣/培训贷识别，都是原版没有、只为中国求职者做的。
+4. **站在巨人的肩膀上**。理念致敬 **santifer/career-ops**（约 62K★ 的开源求职系统，MIT）：薪资对标、投递模式分析、面试复盘的设计思路源自它，代码为**中国市场完全重写**——中式薪资格式解析（"25-40K×15薪"）、大厂职级对标（阿里 P6/字节 2-2/腾讯 T3）、外包/派遣/培训贷识别，都是原版没有、只为中国求职者做的。
 
-## 快速开始
+## 安装
 
-### 方式一：作为 Skill 导入（推荐）
+### 方式一：一键安装（推荐，一句话）
 
-把本目录放入宿主（腾讯 WorkBuddy / Claude / 其他支持 SKILL.md 的平台）的 skills 目录。触发词见 `SKILL.md`。
+不用先下载，打开终端贴这一句回车：
 
-### 方式二：无脚本使用（任何 AI 都能用）
+```bash
+curl -fsSL https://raw.githubusercontent.com/tanchunzhuo/ai-career-position/main/install.sh | bash
+```
+
+脚本自动装到 WorkBuddy / Claude Code / Codex / Cursor 的 skills 目录。重启后直接说「帮我找方向」或「评估这个 JD」就会触发，不用记任何命令。
+
+只装某一个平台（例如 WorkBuddy）：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tanchunzhuo/ai-career-position/main/install.sh | bash -s -- workbuddy
+```
+
+### 方式二：clone 后本地安装
+
+```bash
+git clone https://github.com/tanchunzhuo/ai-career-position.git
+cd ai-career-position && ./install.sh
+```
+
+### 方式三：手动复制
+
+把整个 `ai-career-position` 文件夹放进平台的 skills 目录，重启即可：
+
+| 平台 | 目录 |
+| :--- | :--- |
+| WorkBuddy | `~/.workbuddy/skills/` |
+| Claude Code | `~/.claude/skills/` |
+| Codex | `~/.agents/skills/` |
+| Cursor | `~/.cursor/skills/` |
+
+### 方式四：无脚本使用（任何 AI 都能用，零安装）
 
 1. 复制 `SKILL.md` 与 `prompts/00_syspersona.md` 全文，粘贴给任意 AI（Claude / ChatGPT / Kimi / 豆包 / DeepSeek）；
 2. 按需粘贴对应模块提示词，再粘贴 JD 文本；
